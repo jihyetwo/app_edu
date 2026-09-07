@@ -272,5 +272,28 @@ def build_static_html(output_file="index.html"):
         fp.write(html_content)
     print(f"🎉 [정적 대시보드 빌드 완료] {output_file} ({len(data)}개 캠페인 내장, {os.path.getsize(output_file):,} bytes)")
 
+    # sitemap.xml 자동 동기화
+    base_url = os.environ.get("SITE_BASE_URL", "https://edu.form8.app").rstrip("/")
+    xml_lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        '  <url>',
+        f'    <loc>{base_url}/</loc>',
+        '    <changefreq>daily</changefreq>',
+        '    <priority>1.0</priority>',
+        '  </url>'
+    ]
+    for item in data:
+        xml_lines.append('  <url>')
+        xml_lines.append(f'    <loc>{base_url}/#{item["folder_name"]}</loc>')
+        xml_lines.append('    <changefreq>weekly</changefreq>')
+        xml_lines.append('    <priority>0.8</priority>')
+        xml_lines.append('  </url>')
+    xml_lines.append('</urlset>')
+    sitemap_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "sitemap.xml")
+    with open(sitemap_path, "w", encoding="utf-8") as sfp:
+        sfp.write("\n".join(xml_lines) + "\n")
+    print(f"🗺️  [sitemap.xml 자동 갱신] 총 {len(data)+1}개 URL 등록 완료 ({sitemap_path})")
+
 if __name__ == "__main__":
     build_static_html()
