@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://jihyetwo.github.io/app_edu/sitemap.xml
+Sitemap: https://edu.form8.app/sitemap.xml

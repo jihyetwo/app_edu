@@ -56,11 +56,11 @@ def build_static_html(output_file="index.html"):
   <meta property="og:type" content="website">
   <meta property="og:title" content="EDU 키즈 체험 & 교육정보 블로그 대시보드">
   <meta property="og:description" content="학부모 필수 무료 체험 장소 및 정부 지원금, 교육 정책 완벽 가이드">
-  <meta property="og:url" content="https://jihyetwo.github.io/app_edu/">
+  <meta property="og:url" content="https://edu.form8.app/">
   <meta name="twitter:card" content="summary_large_image">
   
   <!-- 검색엔진 최적화 (SEO) -->
-  <link rel="canonical" href="https://jihyetwo.github.io/app_edu/">
+  <link rel="canonical" href="https://edu.form8.app/">
   <meta name="robots" content="index, follow">
   <style>
     :root {{
