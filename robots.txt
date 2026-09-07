@@ -1,0 +1,6 @@
+# robots.txt for app_edu
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jihyetwo.github.io/app_edu/sitemap.xml
